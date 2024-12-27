@@ -25,9 +25,11 @@ Determine playRound
 
 */
 
+// Declarations
 let humanScore = 0, computerScore = 0;
 let humanChoice, computerChoice;
 
+// Gets the user's input and validates them
 function getHumanChoice() {
     humanChoice = prompt("Enter your choice (rock, paper, or scissors).").toLowerCase(); 
     switch (humanChoice) {
@@ -35,32 +37,59 @@ function getHumanChoice() {
         case "paper":
         case "scissors":
             console.log(`You chose ${humanChoice}!`);
-            break;
-            default:
-                console.log("Invalid input, try again.");
-                etHumanChoice();
+            return humanChoice;
+        default:
+            console.log("Invalid input, try again.");
+            getHumanChoice();
             break;
     }
 }
 
+// Randomly generates the computer's choice
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * 3) + 1;
 
     switch (randomChoice) {
         case 1:
             console.log("Computer chose rock!");
-            computerChoice = "rock";
-            break;
+            return computerChoice = "rock";
         case 2:
             console.log("Computer chose paper!");
-            computerChoice = "paper";
-            break;
+            return computerChoice = "paper";
         case 3:
             console.log("Computer chose scissors!");
-            computerChoice = "scissors";
-            break;
+            return computerChoice = "scissors";
     }
 }
 
-getHumanChoice();
-getComputerChoice();
+/* 
+Compares user and computer's choice to determine winner
+
+Rock > Scissors
+Paper > Rock
+Scissors > Paper
+
+*/
+function playRound(humanChoice, computerChoice) {
+        
+    switch (true) {
+        case (humanChoice === computerChoice):
+            console.log("It's a tie!");
+            break;
+        case (humanChoice === "rock" && computerChoice === "scissors"):
+        case (humanChoice === "paper" && computerChoice === "rock"):
+        case (humanChoice === "scissors" && computerChoice === "paper"):
+            console.log(`You win, ${humanChoice} beats ${computerChoice}!`);
+            break;
+        default:
+            console.log(`You lost, ${computerChoice} beats ${humanChoice}!`);
+            break;
+
+    }
+}
+
+// Play a single round
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
