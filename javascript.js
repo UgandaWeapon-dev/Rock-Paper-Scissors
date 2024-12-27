@@ -24,3 +24,43 @@ Determine playRound
 - Increment humanScore / computerScore based on winner
 
 */
+
+let humanScore = 0, computerScore = 0;
+let humanChoice, computerChoice;
+
+function getHumanChoice() {
+    humanChoice = prompt("Enter your choice (rock, paper, or scissors).").toLowerCase(); 
+    switch (humanChoice) {
+        case "rock":
+        case "paper":
+        case "scissors":
+            console.log(`You chose ${humanChoice}!`);
+            break;
+            default:
+                console.log("Invalid input, try again.");
+                etHumanChoice();
+            break;
+    }
+}
+
+function getComputerChoice() {
+    let randomChoice = Math.floor(Math.random() * 3) + 1;
+
+    switch (randomChoice) {
+        case 1:
+            console.log("Computer chose rock!");
+            computerChoice = "rock";
+            break;
+        case 2:
+            console.log("Computer chose paper!");
+            computerChoice = "paper";
+            break;
+        case 3:
+            console.log("Computer chose scissors!");
+            computerChoice = "scissors";
+            break;
+    }
+}
+
+getHumanChoice();
+getComputerChoice();
