@@ -1,5 +1,4 @@
 /*
-
 playGame
 -Make playRound function and score variable inside playGame function
 - While playRound >= 5, continue game, else end game
@@ -19,59 +18,51 @@ Track score
 
 Determine playRound
 - Define two parameters: 'humanChoice' and 'computerChoice'
-    - make human choices case-insensitive
 - Write string value declaring the round winner
 - Increment humanScore / computerScore based on winner
-
 */
 
 // Declarations
 let humanScore = 0, computerScore = 0;
-let humanChoice, computerChoice;
 
 // Gets the user's input and validates them
 function getHumanChoice() {
-    humanChoice = prompt("Enter your choice (rock, paper, or scissors).").toLowerCase(); 
-    switch (humanChoice) {
-        case "rock":
-        case "paper":
-        case "scissors":
-            console.log(`You chose ${humanChoice}!`);
-            return humanChoice;
-        default:
-            console.log("Invalid input, try again.");
-            getHumanChoice();
-            break;
+
+    // Loop will continue to run until valid input
+    let humanChoice = null;
+    while (true) {
+        humanChoice = prompt("Enter your choice (rock, paper, or scissors).").toLowerCase(); 
+        switch (humanChoice) {
+            case "rock":
+            case "paper":
+            case "scissors":
+                console.log(`You chose ${humanChoice}!`);
+                return humanChoice;
+            default:
+                alert("Invalid input, try again.");
+                break;
+        }
     }
 }
 
 // Randomly generates the computer's choice
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * 3) + 1;
-
     switch (randomChoice) {
         case 1:
             console.log("Computer chose rock!");
-            return computerChoice = "rock";
+            return "rock";
         case 2:
             console.log("Computer chose paper!");
-            return computerChoice = "paper";
+            return "paper";
         case 3:
             console.log("Computer chose scissors!");
-            return computerChoice = "scissors";
+            return "scissors";
     }
 }
 
-/* 
-Compares user and computer's choice to determine winner
-
-Rock > Scissors
-Paper > Rock
-Scissors > Paper
-
-*/
-function playRound(humanChoice, computerChoice) {
-        
+// Plays a round, compares choices to determine winner
+function playRound(humanChoice, computerChoice) {        
     switch (true) {
         case (humanChoice === computerChoice):
             console.log("It's a tie!");
@@ -80,16 +71,40 @@ function playRound(humanChoice, computerChoice) {
         case (humanChoice === "paper" && computerChoice === "rock"):
         case (humanChoice === "scissors" && computerChoice === "paper"):
             console.log(`You win, ${humanChoice} beats ${computerChoice}!`);
+            humanScore++;
             break;
         default:
-            console.log(`You lost, ${computerChoice} beats ${humanChoice}!`);
+            console.log(`You lose, ${computerChoice} beats ${humanChoice}!`);
+            computerScore++;
             break;
-
     }
 }
 
-// Play a single round
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// Main game loop
+function playGame() {
 
-playRound(humanSelection, computerSelection);
+    // Loops for 5 rounds
+    for (let i = 1; i < 6; i++) {
+        console.log(`\nRound ${i}: `);
+
+        // Play a single round
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+
+    // Declares result
+    switch (true) {
+        case (humanScore === computerScore):
+            console.log(`\nIt's a tie! \nScore - You: ${humanScore}, Computer: ${computerScore}`);
+            break;
+        case (humanScore > computerScore):
+            console.log(`\nYou win! \nScore - You: ${humanScore}, Computer: ${computerScore}`);
+            break;
+        case (humanScore < computerScore):
+            console.log(`\nYou lose! \nScore - You: ${humanScore}, Computer: ${computerScore}`);
+    }
+}
+
+// Automatically start game
+playGame();
