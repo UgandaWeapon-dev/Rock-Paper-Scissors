@@ -28,10 +28,19 @@ let humanScore = 0, computerScore = 0;
 // Gets the user's input and validates them
 function getHumanChoice() {
 
-    // Loop will continue to run until valid input
+    // Loop will continue to run until valid input or user cancels
     let humanChoice = null;
     while (true) {
-        humanChoice = prompt("Enter your choice (rock, paper, or scissors).").toLowerCase(); 
+        humanChoice = prompt("Enter your choice (rock, paper, or scissors).");
+
+        // Check if the user canceled the prompt
+        if (humanChoice === null) {
+            console.log("Game cancelled by the user.");
+            return null; // Return null to stop the game
+        }
+
+        // Validate input for choice
+        humanChoice.toLowerCase();
         switch (humanChoice) {
             case "rock":
             case "paper":
@@ -47,6 +56,7 @@ function getHumanChoice() {
 
 // Randomly generates the computer's choice
 function getComputerChoice() {
+
     let randomChoice = Math.floor(Math.random() * 3) + 1;
     switch (randomChoice) {
         case 1:
@@ -63,6 +73,7 @@ function getComputerChoice() {
 
 // Plays a round, compares choices to determine winner
 function playRound(humanChoice, computerChoice) {        
+    
     switch (true) {
         case (humanChoice === computerChoice):
             console.log("It's a tie!");
@@ -87,8 +98,12 @@ function playGame() {
     for (let i = 1; i < 6; i++) {
         console.log(`\nRound ${i}: `);
 
-        // Play a single round
+        // Get human's choice and check if it's null (indicating the game should end)
         const humanSelection = getHumanChoice();
+        if (humanSelection === null) {
+            console.log("The game has ended.");
+            break;
+        }
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
     }
