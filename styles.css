@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'Determination';
+    src: url('determination-mono-web-font/DeterminationSansWebRegular-369X.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Determination', sans-serif;
+    box-sizing: border-box;
+}
+
+html, 
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.cover-page {
+    border: 5px dashed white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 1s ease-out forwards; /* Fade-in animation */
+}
+
+/* Define the fade-in animation */
+@keyframes fadeIn {
+    0% {
+      opacity: 0; /* Fully transparent */
+    }
+    100% {
+      opacity: 1; /* Fully visible */
+    }
+}
+
+.top,
+.title,
+.sub-title {
+    color: white;
+    margin: 0;    
+}
+
+.title {
+    font-size: 10vw;
+}
+
+.sub-title {
+    font-size: 5vw;
+}
+
+.select {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border-style: solid;
+    border-color: white;
+    background: none;
+    color: white;
+    width: 16vw;
+    height: 4vw;
+    font-size: 3vw;
+    text-align: center;
+    transition-duration: 0.2s;
+}
+
+button:hover {
+    color: yellow;
+    border-color: yellow;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    button {
+        width: 20vw;
+        min-height: 8vw; /* Adjust for better proportion on small screens */
+        font-size: 5vw;
+    }
+}
