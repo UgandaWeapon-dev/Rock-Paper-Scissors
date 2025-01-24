@@ -204,7 +204,7 @@ body {
 }
 
 .fade-in {
-    animation: fadeIn 4s ease-in-out;
+    animation: fadeIn 2s ease-in-out;
     opacity: 1; /* End fully visible */
 }
 
