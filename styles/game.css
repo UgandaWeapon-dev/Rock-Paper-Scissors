@@ -1,0 +1,233 @@
+/* Import Fonts */
+@font-face {
+    font-family: 'Determination';
+    src: url('../fonts/determination/DeterminationMonoWebRegular-Z5oq.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mercy';
+    src: url('../fonts/mercy/mercy.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Main Body */
+* {
+    box-sizing: border-box;
+    font-family: "Determination";
+    background-color: black;
+}
+
+html, 
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    gap: 15px;
+}
+
+/* Containers for top and bot section */
+.top {
+    width: 80vw;
+    height: 43.4vh;
+    margin: 0 auto;
+    display: flex;
+}
+
+.mid-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.neco-health {
+    font-size: 3.5vw;
+    color: white;
+    display: flex;
+    align-items: end;
+    flex: 1;
+}
+.responsive-img {
+    height: calc(50vh / 1.5); 
+    width: auto;
+}
+
+.plus-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #47a44b;
+
+}
+
+.top-grid,
+.bot-grid {
+    display: flex;
+    flex: 1;
+    border: 1px solid #47a44b;
+}
+
+.extra {
+    flex: 1;
+    border: 1px solid #47a44b;
+}
+
+.bot {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 42.1vh;
+    margin: 0 auto;
+    max-height: 100vh;
+    overflow: hidden;
+    padding: 0px 30px;
+}
+
+/* Dialogue Section */
+.dialogue {
+    height: 62.8vh; /* 62.8% of the bottom div's height (270px out of 430px) */
+    flex-grow: 0; /* No growth */
+    flex-shrink: 1; /* Allow shrinking if necessary */
+    border: 10px solid white;
+    padding: 20px 25px;
+}
+
+.text {
+    color: white;
+    font-size: 5vh;
+}
+
+
+/* Stats Section */
+.stats {
+    height: 18.6vh; 
+    display: flex;
+    color: white;
+    padding: 2vw 0px;
+}
+
+.level,
+.health,
+.empty,
+.hp,
+.health-bar,
+.health-num {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 3.5vw;
+}
+
+.health {
+    gap: 0px;
+}
+
+/* Health bar container */
+.health-bar {
+    width: 100%; /* Fill the parent size */
+    height: 100%; /* Fill the parent size */
+    background-color: #bf0000; /* Background color for lost health */
+    position: relative; /* Enable positioning of the child fill bar */
+    overflow: hidden;
+}
+
+/* Yellow fill bar */
+.health-fill {
+    position: absolute; /* Absolute positioning relative to the health-bar */
+    top: 0;
+    left: 0;
+    height: 100%; /* Match the height of the health-bar */
+    background-color: #ffff00; /* Yellow health bar color */
+    width: 100%; /* Full width initially */
+    transition: none;
+}
+
+/* Menu Section */
+.menu {
+    height: 18.6vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    font-family: "Mercy";
+    height: 100%;
+    width: 14.58vw;
+    background: none;
+    color: #ff852e;
+    border: 3px solid #ff852e;
+}
+
+button:hover {
+    border-color: yellow;
+    color: yellow;
+    cursor: pointer;
+}
+
+.rock,
+.paper,
+.scissors,
+.quit {
+    font-size: 2vw;
+}
+
+.shake {
+    background-color: black; /* Ensure consistency */
+    animation: shake-animation 0.5s ease;
+}
+
+@keyframes shake-animation {
+    0%, 100% { transform: translateX(0); background-color: black; }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+body {
+    opacity: 0; /* Start fully hidden */
+    transition: none; /* Disable any inherited transitions */
+    background-color: black;
+}
+
+.fade-in {
+    animation: fadeIn 4s ease-in-out;
+    opacity: 1; /* End fully visible */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        background-color: black;
+    }
+}
+
+.fade-out {
+    animation: fadeOut 2s ease-in-out;
+    opacity: 0; /* Ensure it's fully transparent at the end */
+}

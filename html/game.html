@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/game.css">
+    <script src="../javascript/game.js" defer></script>
+    <title>Testing</title>
+</head>
+
+<body>
+    <div class="container game-container">
+
+        <div class="top">
+            <div class="plus-grid">
+                <div class="top-grid">
+                    <div class="extra"></div>
+                    <div class="extra"></div>
+                </div>
+                <div class="bot-grid">
+                    <div class="extra"></div>
+                    <div class="extra"></div>
+                </div>
+            </div>
+            
+            <div class="mid-container">
+                <div class="neco-health">5/5</div>
+                <img src="../pxArt.png" class="responsive-img">
+            </div>
+            
+            <div class="plus-grid">
+                <div class="top-grid">
+                    <div class="extra"></div>
+                    <div class="extra"></div>
+                </div>
+                <div class="bot-grid">
+                    <div class="extra"></div>
+                    <div class="extra"></div>
+                </div>
+            </div> 
+        </div>
+
+        <div class="bot">
+            <div class="dialogue">
+                <div class="text" id="animatedText"></div>
+            </div>
+            
+            <div class="stats">
+                <div class="level">LV 1</div>
+                <div class="health">
+                    <div class="hp">HP</div>
+                    <div class="health-bar">
+                        <div class="health-fill"></div>
+                    </div>
+                    <div class="health-num">5/5</div>
+                </div>
+                <div class="empty"></div>
+            </div>
+               
+            <div class="menu">
+                <button class="rock">ROCK</button>
+                <button class="paper">PAPER</button>
+                <button class="scissors">SCISSORS</button>
+                <button class="quit">MERCY</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="hover-sfx" src="../sfx/Files_MenuCursor.ogg" preload="auto"></audio>
+    <audio id="click-sfx" src="../sfx/Files_MenuSelect.ogg" preload="auto"></audio>
+    <audio id="typeSound" src="../sfx/Files_BattleText.ogg" preload="auto"></audio>
+    <audio id="hurtSound" src="../sfx/Files_PlayerDamaged.ogg" preload="auto"></audio>
+    <audio id="attackSound" src="../sfx/Files_BoneStab.ogg" preload="auto"></audio>
+    <audio id="dodgeSound" src="../sfx/Files_PlayerHeal.ogg" preload="auto"></audio>
+
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="./styles/cover.css">
+    <script src="./javascript/cover.js" defer></script>
     <title>ROCK-PAPER-SCISSORS</title>
 </head>
 
@@ -17,14 +17,13 @@
         </div>
         <div class="select">
             <a href="https://github.com/UgandaWeapon-dev" target="_blank"><button>GitHub</button></a>
-            <button class="play-btn">Play</button>
+            <a id="play-link"><button class="play-btn">Play</button></a>
             <button class="music-toggle">Music</button>
         </div>
     </div>
 
-    <div id="game" style="display: none;">
-        <!-- Rock Paper Scissors Game Content -->
-    </div>
+    <!-- Black overlay for fade effect -->
+    <div id="fade-overlay"></div>
 
     <!-- Audio elements -->
     <audio id="hover-sfx" src="./sfx/Files_MenuCursor.ogg" preload="auto"></audio>
